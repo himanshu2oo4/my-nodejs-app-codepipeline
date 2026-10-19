@@ -1,0 +1,28 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 20
+  pre_build:
+    commands:
+      - node --version
+      - npm ci
+  build:
+    commands:
+      - npm test --if-present
+      - npm run build --if-present
+  post_build:
+    commands:
+      - echo "Build finished on $(date)"
+
+artifacts:
+  files:
+    - '**/*'
+  exclude-paths:
+    - 'node_modules/**/*'
+    - '.git/**/*'
+
+cache:
+  paths:
+    - 'node_modules/**/*'
