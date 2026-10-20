@@ -1,0 +1,32 @@
+name: calling the reusable workflow 
+on: 
+  workflow_dispatch: 
+
+jobs: 
+  auth-service: 
+    name: "building auth service "
+    uses: ./.github/workflows/reusable-workflow.yml 
+    with: 
+      node-version: "18"
+      run-label: "auth-service"
+
+
+  payment-service: 
+    name: "building auth service "
+    uses: ./.github/workflows/reusable-workflow.yml 
+    with: 
+      node-version: "18"
+      run-label: "payment-service"
+
+  
+  notification-service: 
+    name: "building auth service "
+    uses: ./.github/workflows/reusable-workflow.yml 
+    with: 
+      node-version: "18"
+      run-label: "notification-service"
+
+  
+
+  
+
