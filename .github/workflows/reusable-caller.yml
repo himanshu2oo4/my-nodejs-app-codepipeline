@@ -2,6 +2,9 @@ name: calling the reusable workflow
 on: 
   workflow_dispatch: 
 
+# this is the demo file, you can move to diff directory using working-directory 
+# because in real all the micro-services code are lying into diff folders 
+
 jobs: 
   auth-service: 
     name: "building auth service "
