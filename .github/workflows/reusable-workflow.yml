@@ -1,0 +1,37 @@
+name: build and test workflow 
+on: 
+  workflow_call: 
+    inputs: 
+      node-version: 
+        description: "node version for the application services "
+        required: false 
+        default : "18"
+        type : string 
+      run-label: 
+        description: "which service is getting run"
+        required: true 
+        default : "my-service"
+        type : string 
+
+jobs: 
+  build-and-test : 
+    name: "building and testing for service : (${{ inputs.run-label }})"
+    runs-on: ubuntu-latest 
+    steps: 
+      - name : checkout code 
+        uses: actions/checkout@v4 
+      - name : setting up nodejs 
+        uses: actions/setup-node@v4 
+        with: 
+          node-version : ${{inputs.node-version}}
+
+      - name: Installing dependenices 
+        run : echo "Installing dependencies for the service-${{ inputs.run-label }}"
+      - name: running test scripts
+        run : echo "running test scripts for the service-${{ inputs.run-label }}"
+
+      - name : simulating the docker build images 
+        run: echo "Image build sucessfully for the service-${{ inputs.run-label }}"
+
+
+
