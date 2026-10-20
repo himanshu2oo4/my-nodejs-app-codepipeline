@@ -4,7 +4,8 @@ on:
 
 # this is the demo file, you can move to diff directory using working-directory 
 # because in real all the micro-services code are lying into diff folders 
-
+# in a job you can call only a single workflow using uses: 
+# no two reusable workflows can be called in a single job 
 jobs: 
   auth-service: 
     name: "building auth service "
